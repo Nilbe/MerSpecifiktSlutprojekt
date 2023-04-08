@@ -2,15 +2,11 @@ using System;
 
 public class Tilemap
 {
-    public const int screenWidth = 800;
-    public const int screenHeight = 450;
-    public const int tileSize = 32;
-    public const int tilesX = screenWidth / tileSize;
-    public const int tilesY = screenHeight / tileSize;
-    public int x = 0;
-    public int y = 0;
+    public int tileSize = 100;
+    public int rows = 6;
+    public int columns = 8;
 
-    public List<Tiles> tiles = new();
+    public List<Tiles> tile = new();
 
     public void Update() 
     {    
@@ -18,14 +14,13 @@ public class Tilemap
 
     public void Draw()
     {
-        for (x = 0; x < tilesX; x++)
+        for (int row = 0; row < rows; row++)
         {
-            for (y = 0; y < tilesY; y++)
+            for (int col =0; col < columns; col++)
             {
-                
-                Raylib.DrawRectangleLinesEx(tile, 1, Color.BLACK);
+                Rectangle tileRect = new Rectangle(col * tileSize, row * tileSize, tileSize, tileSize);
+                Raylib.DrawRectangleLinesEx(tileRect, 1, Color.WHITE);
             }
         }
-        Raylib.EndDrawing();
     }
 }
