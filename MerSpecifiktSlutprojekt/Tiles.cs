@@ -6,6 +6,17 @@ public class Tiles: Tilemap
 
     public Tiles()
     {
+        Rectangle tile = new Rectangle(0,0,32,32);
+    }
+
+    public void Draw()
+    {
+        Raylib.DrawRectangleRec(tile, color);
+    }
+
+    public void Update()
+    {
         
     }
+    public Rectangle tile;
 }
