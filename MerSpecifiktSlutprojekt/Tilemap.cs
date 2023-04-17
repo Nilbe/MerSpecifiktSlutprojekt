@@ -6,14 +6,22 @@ public class Tilemap
     public int rows = 6;
     public int columns = 8;
 
-    public List<Tiles> tiles = new();
+    private Tiles tiles;
+
+    public List<Tiles> tilesList = new();
     public Stack<Tiles> stack = new();
 
-    public void Update() 
-    {    
+    public Tilemap()
+    {
+        tiles = new Tiles();
     }
 
-    public void OnMouseEnter() 
+    public void Update() 
+    {
+
+    }
+
+    public void OnMouseClick() 
     {
         
     }
@@ -26,6 +34,14 @@ public class Tilemap
             {
                 Rectangle tileRect = new Rectangle(col * tileSize, row * tileSize, tileSize, tileSize);
                 Raylib.DrawRectangleLinesEx(tileRect, 1, Color.WHITE);
+            }
+        }
+
+        for (int row = 0; row < 1; row++)
+        {
+            for (int col = 0; col < columns; col++)
+            {
+                BorderTiles.Draw();
             }
         }
     }
