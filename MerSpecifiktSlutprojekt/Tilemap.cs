@@ -7,23 +7,19 @@ public class Tilemap
     public int columns = 8;
 
     private Tiles tiles;
-
-    public List<Tiles> tilesList = new();
+    private RedTile redTile;
+    public List list = new();
     public Stack<Tiles> stack = new();
 
     public Tilemap()
     {
         tiles = new Tiles();
+        redTile = new RedTile();
     }
 
     public void Update() 
     {
 
-    }
-
-    public void OnMouseClick() 
-    {
-        
     }
 
     public void Draw()
@@ -37,12 +33,6 @@ public class Tilemap
             }
         }
 
-        for (int row = 0; row < 1; row++)
-        {
-            for (int col = 0; col < columns; col++)
-            {
-                BorderTiles.Draw();
-            }
-        }
+        redTile.Draw();
     }
 }

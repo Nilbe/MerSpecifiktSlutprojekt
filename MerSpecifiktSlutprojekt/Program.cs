@@ -11,7 +11,7 @@ Tilemap tilemap = new Tilemap();
 while (!Raylib.WindowShouldClose())     //utritning av Area
 {
     tilemap.Update();
-    
+   
 
     Raylib.BeginDrawing();
     Raylib.ClearBackground(Color.BLACK);
