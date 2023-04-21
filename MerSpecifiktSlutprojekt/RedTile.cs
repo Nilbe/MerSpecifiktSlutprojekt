@@ -5,6 +5,6 @@ public class RedTile: Tiles
     public RedTile()
     {
         color = Color.RED;
-        tile = new Rectangle(0,0,tileSize,tileSize);
+        tile = new Rectangle(200,300,tileSize,tileSize);
     }
 }

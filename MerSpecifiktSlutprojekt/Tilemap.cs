@@ -6,20 +6,31 @@ public class Tilemap
     public int rows = 6;
     public int columns = 8;
 
+    bool pickedUp = false;
+
+    public Vector2 MousePosition;
+
     private Tiles tiles;
     private RedTile redTile;
-    public List list = new();
     public Stack<Tiles> stack = new();
 
     public Tilemap()
     {
         tiles = new Tiles();
         redTile = new RedTile();
+
+        MousePosition = Raylib.GetMousePosition();
     }
 
     public void Update() 
     {
+        redTile.Update();
 
+        if(Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && Raylib.CheckCollisionPointRec(MousePosition, redTile.tile))
+        {
+            stack.Push(redTile);
+            pickedUp = true;
+        }
     }
 
     public void Draw()
@@ -34,5 +45,6 @@ public class Tilemap
         }
 
         redTile.Draw();
+
     }
 }
