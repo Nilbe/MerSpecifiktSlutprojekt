@@ -1,6 +1,6 @@
 using System;
 
-public class RedTile: Tiles
+public class RedTile: Tiles // information specifik för RedTile
 {
     public RedTile()
     {

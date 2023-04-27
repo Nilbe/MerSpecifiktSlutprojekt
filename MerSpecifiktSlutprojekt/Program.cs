@@ -8,10 +8,9 @@ Raylib.InitWindow(800,600, "Tiles");
 
 Tilemap tilemap = new Tilemap();
 
-while (!Raylib.WindowShouldClose())     //utritning av Area
+while (!Raylib.WindowShouldClose())     //utritning av tilemap
 {
     tilemap.Update();
-   
 
     Raylib.BeginDrawing();
     Raylib.ClearBackground(Color.BLACK);

@@ -9,20 +9,21 @@ public class Tilemap
     bool pickedUp = false;
 
     public Vector2 MousePosition;
+    public Vector2 textPos = new Vector2(500,300);
 
     private Tiles tiles;
     private RedTile redTile;
-    public Stack<Tiles> stack = new();
+    public Stack<Tiles> stack = new(); // en stack som förvarar de tiles man taggit upp
 
     public Tilemap()
     {
         tiles = new Tiles();
         redTile = new RedTile();
 
-        MousePosition = Raylib.GetMousePosition();
+        MousePosition = Raylib.GetMousePosition(); // sätter ut ett värde för vectoren MousePosition
     }
 
-    public void Update() 
+    public void Update() // logik för att ta upp och plasera tiles
     {
         redTile.Update();
 
@@ -31,10 +32,17 @@ public class Tilemap
             stack.Push(redTile);
             pickedUp = true;
         }
+        else
+        {
+            pickedUp = false;
+        }
     }
 
-    public void Draw()
+    public void Draw() // utritandet av rutnätet och tilesen i det
     {
+        if(pickedUp ==  false)
+        {
+
         for (int row = 0; row < rows; row++)
         {
             for (int col = 0; col < columns; col++)
@@ -45,6 +53,11 @@ public class Tilemap
         }
 
         redTile.Draw();
+        }
 
+        if(pickedUp == true)
+        {
+            Raylib.DrawTextEx(default, "Tile picked up", textPos, 20, 10, Color.WHITE);
+        }
     }
 }

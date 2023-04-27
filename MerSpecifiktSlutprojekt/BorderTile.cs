@@ -1,7 +1,7 @@
 using System;
 
 
-public class BorderTile: Tiles
+public class BorderTile: Tiles // information specifik för BorderTile
 {
     public BorderTile()
     {
