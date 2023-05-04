@@ -19,20 +19,21 @@ public class Tilemap
     {
         tiles = new Tiles();
         redTile = new RedTile();
-
-        MousePosition = Raylib.GetMousePosition(); // sätter ut ett värde för vectoren MousePosition
     }
 
     public void Update() // logik för att ta upp och plasera tiles
     {
+        MousePosition = Raylib.GetMousePosition(); // sätter ut ett värde för vectoren MousePosition
+
         redTile.Update();
 
         if(Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT) && Raylib.CheckCollisionPointRec(MousePosition, redTile.tile))
         {
             stack.Push(redTile);
+
             pickedUp = true;
         }
-        else
+        else 
         {
             pickedUp = false;
         }
@@ -40,9 +41,6 @@ public class Tilemap
 
     public void Draw() // utritandet av rutnätet och tilesen i det
     {
-        if(pickedUp ==  false)
-        {
-
         for (int row = 0; row < rows; row++)
         {
             for (int col = 0; col < columns; col++)
@@ -51,13 +49,7 @@ public class Tilemap
                 Raylib.DrawRectangleLinesEx(tileRect, 1, Color.WHITE);
             }
         }
-
+        
         redTile.Draw();
-        }
-
-        if(pickedUp == true)
-        {
-            Raylib.DrawTextEx(default, "Tile picked up", textPos, 20, 10, Color.WHITE);
-        }
     }
 }

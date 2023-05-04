@@ -10,7 +10,7 @@ public class Tiles // basklass för alla tiles i spelet
         Rectangle tile = new Rectangle(0,0,tileSize,tileSize);
     }
 
-    public void Draw()
+    public virtual void Draw()
     {
         Raylib.DrawRectangleRec(tile, color);
     }
@@ -19,5 +19,6 @@ public class Tiles // basklass för alla tiles i spelet
     {
         
     }
+    
     public Rectangle tile;
 }
